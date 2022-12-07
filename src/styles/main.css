@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+.colour {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.colour > label > h1 {
+    cursor: pointer;
+    padding: 20px;
+    transition: 300ms;
+    border-radius: 20px;
+}
+.colour > label > h1:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.colour > i {
+    cursor: pointer;
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 20px;
+    transition: 300ms;
+}
+
+.colour > i:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
