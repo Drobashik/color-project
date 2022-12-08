@@ -1,22 +1,24 @@
-import ColourPickerHandler from "./classes/ColourPickerHandler";
-import ColourElementHandler from "./classes/ColourElementHandler";
+import ColourPaletteGenerator from "./classes/ColourPaletteGenerator";
+import ColourElementsHandler from "./classes/ColourElementsHandler";
 import EventConstructor from "./classes/EventConstructor";
+import ElementHandleCreator from "./classes/ElementCreator";
 
 const eventConstructor = new EventConstructor();
-const elementCreator = new ColourElementHandler(
-  eventConstructor,
-  document.querySelector(".app")
+const elementCreator = new ElementHandleCreator(document.querySelector(".app"));
+
+const colourElementHandler = new ColourElementsHandler(
+  elementCreator,
+  eventConstructor
 );
-const colourPaletteHandler = new ColourPickerHandler(elementCreator);
+const colourPaletteHandler = new ColourPaletteGenerator(elementCreator);
 
 eventConstructor.createEvent(
-    document,
-    'keydown',
-    colourPaletteHandler.generateNewColours.bind(colourPaletteHandler)    
-)
+  document,
+  "keydown",
+  colourPaletteHandler.generateNewColours.bind(colourPaletteHandler)
+);
 
-elementCreator.insertColourElements(
-  colourPaletteHandler.createColorPaletteElement.bind(colourPaletteHandler),
-  4,
-  eventConstructor.createEvent,
+colourElementHandler.createColourElements(
+  colourPaletteHandler.generateColorPaletteElement.bind(colourPaletteHandler),
+  4
 );

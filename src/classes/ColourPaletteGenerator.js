@@ -1,8 +1,9 @@
 import { getRandom } from "../utilities/getRandom";
+import ElementHandler from "./ElementHandler";
 
-export default class ColourPickerHandler {
+export default class ColourPaletteGenerator extends ElementHandler {
   constructor(elementCreator) {
-    this.elementCreator = elementCreator;
+    super(elementCreator);
     this.arrayOfColourElements = [];
     this.colourElement = null;
     this.colorPalette = "";
@@ -31,7 +32,8 @@ export default class ColourPickerHandler {
     });
   }
 
-  createColorPaletteElement() {
+  generateColorPaletteElement() {
+    console.log(this)
     this.colorPalette = this.generateRandomColor();
     this.colourElement = this.elementCreator.createElement(
       "div",
