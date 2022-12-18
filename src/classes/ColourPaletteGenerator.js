@@ -33,7 +33,6 @@ export default class ColourPaletteGenerator extends ElementHandler {
   }
 
   generateColorPaletteElement() {
-    console.log(this)
     this.colorPalette = this.generateRandomColor();
     this.colourElement = this.elementCreator.createElement(
       "div",
